@@ -20,14 +20,17 @@ const firebaseConfig = {
   appId: "1:887873168972:web:c9f29a6c9894eb3b88b6e9",
   measurementId: "G-WXWG684D4L"
 };
-//HOlaaaaaa
-// Initialize Firebase
+
 const app = initializeApp(firebaseConfig);
+
+
 const db = getFirestore(app);
 let lista;
 let ini;
 
+
 async function getUser(db, id) {
+  
   const personasColection = collection(db, 'personas');
   const personasSnapshot = await getDocs(personasColection);
   const personasList = personasSnapshot.docs.map(doc => doc.data());
@@ -36,6 +39,7 @@ async function getUser(db, id) {
   lista = personasList;
   return datos;
 }
+
 
 async function addUser(db, nombre) {
   try {
@@ -47,11 +51,14 @@ async function addUser(db, nombre) {
     console.error("Error adding document: ", e);
   }
 }
+
+
 getUser(db, 1).then((data) => {
   ini = (data);
 });
 function App() {
 
+  //
   const navigate = useNavigate();
   const [correo, setCorreo] = useState("i");
   const [contrasena, setContrasena] = useState("i");
