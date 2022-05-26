@@ -1,0 +1,11 @@
+.fondoRes{
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.contenidoRes{
+    display: flex;
+    color:rgb(24, 24, 24);
+    flex-direction: row;
+}
