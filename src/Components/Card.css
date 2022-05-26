@@ -1,16 +1,16 @@
 .card{
     display: flex;
-    margin: 30px;
-    flex-direction: row;
+    margin: 20px;
     padding: 20px;
-    min-width:300px;
-    max-width: 400px;
+    min-width:250px;
+    max-width: 500px;
     width: 40vw;
     background-color: white;
     border-radius: 20px;
     justify-content: space-around;
     align-items: center;
     box-shadow: 5px 5px 25px -15px rgb(0, 0, 0);
+    flex-wrap: wrap;
 
 }
 
@@ -19,19 +19,28 @@
 }
 
 .card img{
-    width: 15vw;
-    height: 15vw;
+    width: 20vw;
+    height: 20vw;
     max-width: 200px;
     max-height: 200px;
-    min-width: 100px;
-    min-height: 100px;
+    min-width: 150px;
+    min-height: 150px;
     border-radius: 10px;
+    margin: 10px;
 }
 .info{
-    width: 10vw;
-    max-width: 200px;
-    min-width: 100px;
+    width: 15vw;
+    max-width: 300px;
+    min-width: 200px;
 }
 .tCiudad{
     color:orange;
+}
+
+
+@media (max-width: 320px ){
+.card{
+    margin-left: 0;
+    margin-right: 0;
+}
 }

@@ -65,9 +65,9 @@ function Menu() {
                     <img className='imagenR' src='logo_R.png'></img>
 
                 </div>
-                <div>
+                <div className='divB'>
 
-                    <h3>Busca tus restaurantes favoritos cercanos a ti</h3>
+                    <h3 className='tBuscador'>Busca tus restaurantes favoritos cercanos a ti</h3>
                     <input className='buscador' onChange={(e) => { setRestauranteI(e.target.value) }}></input>
                 </div>
 
