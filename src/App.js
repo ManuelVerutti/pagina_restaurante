@@ -62,7 +62,7 @@ function App() {
 
   function validacion(correoI, contrasenaI) {
     
-    
+    let validador = false;
     let i = 0;
     while (i < lista.length && iCorrecto === "Incorrecto") {
 
@@ -74,15 +74,17 @@ function App() {
       if (correoI == datosU.correo && contrasenaI == datosU.contrasena) {
         setICorrecto("Correcto");
         console.log("Si logro encontrar a la persona")
-        return true;
+        validador = true;
+
       }
       else {
         setICorrecto("Incorrecto");
 
         console.log("NOOOOOOOOOOOOOO logro encontrar a la persona")
+
       }
       i++;
-    }
+    }return validador;
 
   }
 
@@ -104,7 +106,7 @@ function App() {
           </input>
         </div>
 
-        <button onClick={() => { validacion(correoI, contraI); if(iCorrecto==="Correcto"){ navigate('/menu'); } }}>
+        <button onClick={() => {if(validacion(correoI, contraI)){ navigate('/menu'); } }}>
           Ingresar
         </button>
         <p onClick={() => { navigate('/register') }} >Registro</p>

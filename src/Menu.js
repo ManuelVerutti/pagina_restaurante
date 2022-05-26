@@ -6,6 +6,7 @@ import { getFirestore, collection, getDocs, DocumentData, Firestore, deleteField
 import { onSnapshot, getFirestore as getFirestoreF } from 'firebase/firestore';
 import { async } from '@firebase/util';
 import { useNavigate } from 'react-router-dom';
+import Grid from './Components/Grid';
 
 
 const firebaseConfig = {
@@ -37,9 +38,12 @@ async function getRestaurante(db,id) {
 getRestaurante(db, 0).then((data) => {
      ini = (data);
 });
-
+console.log(lista);
 function Menu() {
 
+    useEffect(() => {
+        console.log(lista);
+    })
 
     const [RestauranteI, setRestauranteI] = useState("");
 
@@ -54,6 +58,7 @@ function Menu() {
                 <input className='Buscador' onChange={(e) => {setRestauranteI(e.target.value)}}></input> 
                 <button className='BotonDeBuscar'>Buscar</button>
             </div>
+            <Grid lista = {Object.values(lista)}>  </Grid>
         </div>
     );
 }
