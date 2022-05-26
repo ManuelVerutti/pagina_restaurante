@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from './Card';
+import "./Grid.css";
 
 function Grid  (lista) {
   let lista2 = lista.lista;
@@ -9,13 +10,15 @@ function Grid  (lista) {
     {(lista2 ? lista2.length > 0 : lista2) ? (
         
         Object.values(lista2).map((item, index) => {
-       console.log(item);
+       console.log(index);
         return (
           <div key={index}>
             <Card
               nombre = {item.nombre}
               imagen = {item.imagen}
               ciudad = {item.ciudad}
+              descripcion = {item.descripcion}
+              id = {index + 1} 
             />
           </div>
         );

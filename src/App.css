@@ -1,12 +1,17 @@
 .contenido {
-  background-image: url("https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/media/image/2021/02/comida-basura-2242805.jpg");
+  
+  background-image: url("https://media-cdn.tripadvisor.com/media/photo-s/18/ba/24/c8/specialties.jpg");
   display: flex;
   justify-content: space-around;
   align-items: center;
   width: 100vw;
   color: orange;
   height: 100vh;
+  
+  
 }
+
+
 .datos {
   background-color: white;
   display: flex;

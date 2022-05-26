@@ -1,0 +1,37 @@
+.card{
+    display: flex;
+    margin: 30px;
+    flex-direction: row;
+    padding: 20px;
+    min-width:300px;
+    max-width: 400px;
+    width: 40vw;
+    background-color: white;
+    border-radius: 20px;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 5px 5px 25px -15px rgb(0, 0, 0);
+
+}
+
+.card:hover{
+    transform: scale(1.1);
+}
+
+.card img{
+    width: 15vw;
+    height: 15vw;
+    max-width: 200px;
+    max-height: 200px;
+    min-width: 100px;
+    min-height: 100px;
+    border-radius: 10px;
+}
+.info{
+    width: 10vw;
+    max-width: 200px;
+    min-width: 100px;
+}
+.tCiudad{
+    color:orange;
+}

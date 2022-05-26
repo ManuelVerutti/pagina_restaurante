@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import './App.css';
 import './Menu.css';
 import { initializeApp, FirebaseApp } from 'firebase/app';
 import { getFirestore, collection, getDocs, DocumentData, Firestore, deleteField, doc, updateDoc, setDoc } from 'firebase/firestore/lite';
@@ -39,32 +38,63 @@ function Menu() {
 
     const [lista, setLista] = useState("");
 
-    if(lista.length === 0){
-        
-    getRestaurante(db, 0).then((data) => {
-        setLista(data)
-    });
-    console.log("Cargo El Elemento");
+    if (lista.length === 0) {
+
+        getRestaurante(db, 0).then((data) => {
+            setLista(data)
+        });
+        console.log("Cargo El Elemento");
 
     }
 
     useEffect(() => {
-        
-    console.log(lista);
+
+        console.log(lista);
     })
 
     const [RestauranteI, setRestauranteI] = useState("");
+    const [busqueda, setBusqueda] = useState("");
 
 
     return (
         <div className='menu'>
             <div className='ListaRestaurantes'>
                 <div className='ContendorTextoBuscador'>
-                    <img src='logo192.png'></img>
-                    <h2>Busca tus restaurantes favoritos cercanos a ti</h2>
+                    <img className='imagenR' src='logo_R.png'></img>
+
                 </div>
-                <input className='Buscador' onChange={(e) => { setRestauranteI(e.target.value) }}></input>
-                <button className='BotonDeBuscar'>Buscar</button>
+                <div>
+
+                    <h3>Busca tus restaurantes favoritos cercanos a ti</h3>
+                    <input className='buscador' onChange={(e) => { setRestauranteI(e.target.value) }}></input>
+                </div>
+
+                <button className='BotonDeBuscar' onClick={() => {
+                    
+                    console.log(RestauranteI);
+                    let i = 0;
+                    let newList = [];
+                    while (i < lista.length) {
+
+                        console.log(i);
+                        if (RestauranteI !== "") {
+
+                            console.log("busqueda no nula");
+                            if (lista[i].ciudad === RestauranteI) {
+
+                                console.log("Se encontró");
+                                newList.push(lista[i]);
+                            }
+                            else{
+
+                            }
+                        }
+                        i = i + 1;
+                    }
+                    console.log(newList);
+                    setLista(newList);
+
+                }} >Buscar</button>
             </div>
             <Grid lista={lista}></Grid>
         </div>

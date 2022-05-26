@@ -4,7 +4,7 @@ import { initializeApp, FirebaseApp } from 'firebase/app';
 import { getFirestore, collection, getDocs, DocumentData, Firestore, deleteField, doc, updateDoc, setDoc } from 'firebase/firestore/lite';
 import { onSnapshot, getFirestore as getFirestoreF } from 'firebase/firestore';
 import { async } from '@firebase/util';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const firebaseConfig = {
     apiKey: "AIzaSyA31tCERRhjVXrlHxwOTQKodaO7PPsuqZo",
@@ -31,21 +31,27 @@ async function getRestaurante(db, id) {
     return datos;
 }
 
-function Detalle() {
+function Detalle(state) {
+    const location = useLocation();
+    console.log(location.state);
 
-  const [imagen, setImagen] = useState("");
-  const [nombre, setNombre] = useState("");
-  const [ciudad, setCiudad] = useState("");
-  const [reseña, setReseña] = useState("");
-  const [enlace, setEnlace] = useState("");
-    
-getRestaurante(db, 0).then((data) => {
-    setCiudad(data.ciudad);
-    setNombre(data.nombre);
-    setImagen(data.imagen);
-    setReseña(data.reseña);
-    setEnlace(data.enlacePagina);
-  });
+    const [imagen, setImagen] = useState("");
+    const [nombre, setNombre] = useState("");
+    const [ciudad, setCiudad] = useState("");
+    const [reseña, setReseña] = useState("");
+    const [enlace, setEnlace] = useState("");
+    const [descripcion, setDescripcion] = useState("");
+    const [direccion, setDireccion] = useState("");
+
+    getRestaurante(db, location.state - 1).then((data) => {
+        setCiudad(data.ciudad);
+        setNombre(data.nombre);
+        setImagen(data.imagen);
+        setReseña(data.reseña);
+        setEnlace(data.enlacePagina);
+        setDescripcion(data.descripcion);
+        setDireccion(data.direccion);
+    });
     console.log("Cargo El Elemento")
 
     const navigate = useNavigate();
@@ -62,8 +68,9 @@ getRestaurante(db, 0).then((data) => {
                 </div>
                 <div className='infoRes'>
                     <h2>{nombre}</h2>
-                    <h4>{ciudad}</h4>
+                    <h4>{ciudad} {direccion} </h4>
                     <p>{reseña}</p>
+                    <p>{descripcion}</p>
                 </div>
             </div>
         </div>

@@ -93,11 +93,18 @@ function App() {
     console.log(lista)
   })
   return (
+    
     <div className='contenido'>
+      
       <div className='datos'>
+        
+       
+      
         <h2>Inicia Sesión {iCorrecto}</h2>
         <div><p>Correo:</p>
+        
           <input onChange={(e) => { setCorreoI(e.target.value); }}>
+            
           </input>
         </div>
         <div>
@@ -111,6 +118,7 @@ function App() {
         </button>
         <p onClick={() => { navigate('/register') }} >Registro</p>
       </div>
+      
     </div>
   );
 }
