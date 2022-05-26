@@ -1,0 +1,97 @@
+.contenido {
+  background-image: url("https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/media/image/2021/02/comida-basura-2242805.jpg");
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100vw;
+  color: orange;
+  height: 100vh;
+}
+.datos {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  width: 40vw;
+  height: 40vw;
+  text-align: center;
+  border-radius: 40px;
+  box-shadow: 10px 10px 20px -10px black;
+  justify-content: space-around;
+  padding: 20px;
+  min-width: 200px;
+  min-height: 400px;
+  max-width: 450px;
+  max-height: 450px;
+  align-items: center;
+}
+
+.datos p {
+  text-align: left;
+}
+.datos input{
+  border-radius: 20px;
+  height: 40px;
+  border: 0;
+  width: 30vw;
+  min-width: 180px;
+  max-width: 400px;
+  box-shadow: inset -5px -7px 25px -23px black;
+  text-align: center;
+}
+.datos button{
+  border-radius: 20px;
+  background: orange;
+  height: 40px;
+  width: 120px;
+  border: 0;
+  box-shadow: 5px 5px 10px -10px black;
+  margin-top: 20px;
+  color: white;
+}
+.datos button:hover{
+  background: orangered;
+}
+
+.datosR {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  width: 40vw;
+  height: 70vw;
+  text-align: center;
+  border-radius: 40px;
+  box-shadow: 10px 10px 20px -10px black;
+  justify-content: space-around;
+  padding: 20px;
+  min-width: 200px;
+  min-height: 550px;
+  max-width: 450px;
+  max-height: 600px;
+  align-items: center;
+}
+.datosR p {
+  text-align: left;
+}
+.datosR input{
+  border-radius: 20px;
+  height: 40px;
+  border: 0;
+  width: 30vw;
+  min-width: 180px;
+  max-width: 400px;
+  box-shadow: inset -5px -7px 25px -23px black;
+  text-align: center;
+}
+.datosR button{
+  border-radius: 20px;
+  background: orange;
+  height: 40px;
+  width: 120px;
+  border: 0;
+  box-shadow: 5px 5px 10px -10px black;
+  margin-top: 20px;
+  color: white;
+}
+.datosR button:hover{
+  background: orangered;
+}
