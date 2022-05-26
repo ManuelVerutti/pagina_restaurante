@@ -19,37 +19,36 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 let ini;
+let lista;
 
-
+async function getRestaurante(db, id) {
+    const restaurantesColection = collection(db, 'restaurantes');
+    const restaurantesSnapshot = await getDocs(restaurantesColection);
+    const restaurantesList = restaurantesSnapshot.docs.map(doc => doc.data());
+    let firstElement = restaurantesList[id];
+    let datos = firstElement;
+    lista = restaurantesList;
+    return datos;
+}
 
 function Detalle() {
-    const navigate = useNavigate();
 
+  const [imagen, setImagen] = useState("");
+  const [nombre, setNombre] = useState("");
+  const [ciudad, setCiudad] = useState("");
+  const [reseña, setReseña] = useState("");
+  const [enlace, setEnlace] = useState("");
     
-    const [lista, setLista] = useState("");
-    const [cargado, setCargado] = useState(false);
-    const [act, setAct] = useState("");
+getRestaurante(db, 0).then((data) => {
+    setCiudad(data.ciudad);
+    setNombre(data.nombre);
+    setImagen(data.imagen);
+    setReseña(data.reseña);
+    setEnlace(data.enlacePagina);
+  });
+    console.log("Cargo El Elemento")
 
-
-    async function getRestaurante(db, id) {
-        const restaurantesColection = collection(db, 'restaurantes');
-        const restaurantesSnapshot = await getDocs(restaurantesColection);
-        const restaurantesList = restaurantesSnapshot.docs.map(doc => doc.data());
-        let firstElement = restaurantesList[id];
-        let datos = firstElement;
-        setLista(restaurantesList);
-        return datos;
-    }
-
-    if(!cargado){
-        
-    getRestaurante(db, 0).then((data) => {
-        ini = (data);
-      });
-      setCargado(true);
-    }else{
-        setAct(act+1);
-    }
+    const navigate = useNavigate();
 
     useEffect(() => {
         console.log(lista);
@@ -58,13 +57,13 @@ function Detalle() {
         <div className='fondoRes'>
             <div className='contenidoRes'>
                 <div >
-                    <img alt="" src={lista[0].imagen}></img>
-                    <a href={lista[0].enlacePagina}>Enlace Pagina</a>
+                    <img alt="" src={imagen}></img>
+                    <a href={enlace}>Enlace Pagina</a>
                 </div>
                 <div className='infoRes'>
-                    <h2>{lista[0].nombre}</h2>
-                    <h4>{lista[0].ciudad}</h4>
-                    <p>{lista[0].reseña}</p>
+                    <h2>{nombre}</h2>
+                    <h4>{ciudad}</h4>
+                    <p>{reseña}</p>
                 </div>
             </div>
         </div>

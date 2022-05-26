@@ -22,27 +22,35 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-let lista;
 let ini;
 
-async function getRestaurante(db,id) {
+async function getRestaurante(db, id) {
     const restaurantesColection = collection(db, 'restaurantes');
     const restaurantesSnapshot = await getDocs(restaurantesColection);
     const restaurantesList = restaurantesSnapshot.docs.map(doc => doc.data());
     let firstElement = restaurantesList[id];
     let datos = firstElement;
-    lista = restaurantesList;
-    return datos;
+    let lista = restaurantesList;
+    return lista;
 }
 
-getRestaurante(db, 0).then((data) => {
-     ini = (data);
-});
-console.log(lista);
 function Menu() {
 
+
+    const [lista, setLista] = useState("");
+
+    if(lista.length === 0){
+        
+    getRestaurante(db, 0).then((data) => {
+        setLista(data)
+    });
+    console.log("Cargo El Elemento");
+
+    }
+
     useEffect(() => {
-        console.log(lista);
+        
+    console.log(lista);
     })
 
     const [RestauranteI, setRestauranteI] = useState("");
@@ -52,13 +60,13 @@ function Menu() {
         <div className='menu'>
             <div className='ListaRestaurantes'>
                 <div className='ContendorTextoBuscador'>
-                <img src='logo192.png'></img>
+                    <img src='logo192.png'></img>
                     <h2>Busca tus restaurantes favoritos cercanos a ti</h2>
                 </div>
-                <input className='Buscador' onChange={(e) => {setRestauranteI(e.target.value)}}></input> 
+                <input className='Buscador' onChange={(e) => { setRestauranteI(e.target.value) }}></input>
                 <button className='BotonDeBuscar'>Buscar</button>
             </div>
-            <Grid lista = {Object.values(lista)}>  </Grid>
+            <Grid lista={lista}></Grid>
         </div>
     );
 }

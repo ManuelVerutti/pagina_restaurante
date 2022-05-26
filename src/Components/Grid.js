@@ -2,19 +2,20 @@ import React from 'react';
 import Card from './Card';
 
 function Grid  (lista) {
-    console.log(lista);
+  let lista2 = lista.lista;
+  console.log(lista2);
     return (
     <React.Fragment> <div className="grid">
-    {(lista ? lista.length > 0 : lista) ? (
+    {(lista2 ? lista2.length > 0 : lista2) ? (
         
-      lista.map((item, index) => {
-       
+        Object.values(lista2).map((item, index) => {
+       console.log(item);
         return (
           <div key={index}>
             <Card
-              nombre = {item.lista[0].nombre}
-              imagen = {item.lista[0].imagen}
-              ciudad = {item.lista[0].ciudad}
+              nombre = {item.nombre}
+              imagen = {item.imagen}
+              ciudad = {item.ciudad}
             />
           </div>
         );
