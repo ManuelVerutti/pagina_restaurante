@@ -18,7 +18,7 @@ function Grid  (lista) {
               imagen = {item.imagen}
               ciudad = {item.ciudad}
               descripcion = {item.descripcion}
-              id = {index + 1} 
+              id = {item.id + 1} 
             />
           </div>
         );

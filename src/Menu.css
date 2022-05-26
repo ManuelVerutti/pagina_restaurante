@@ -27,6 +27,7 @@
     justify-content: space-around;
     padding: 20px;  
     
+  box-shadow: 0 5px 20px -10px black;
     
 }
 
@@ -37,6 +38,7 @@
     border: 0;
     align-items: center;
     justify-content: space-around;
+    outline: none;
 }
 
 .BotonDeBuscar{
@@ -60,4 +62,16 @@
 height: 110px;
 width: 110px;
 
+}
+.cerrar{
+    color: orange;
+    position: absolute;
+    bottom: 10px;
+    
+  cursor: pointer;
+    right: 30px;
+}
+
+.cerrar:hover{
+transform: scale(1.2);
 }

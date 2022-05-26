@@ -75,6 +75,8 @@ function App() {
         setICorrecto("Correcto");
         console.log("Si logro encontrar a la persona")
         validador = true;
+        
+        localStorage.setItem("inicioSesion", "si");
 
       }
       else {
@@ -100,7 +102,7 @@ function App() {
         
        
       
-        <h2>Inicia Sesión {iCorrecto}</h2>
+        <h2>Inicia Sesión</h2>
         <div><p>Correo:</p>
         
           <input onChange={(e) => { setCorreoI(e.target.value); }}>
@@ -113,10 +115,12 @@ function App() {
           </input>
         </div>
 
-        <button onClick={() => {if(validacion(correoI, contraI)){ navigate('/menu'); } }}>
+        <button onClick={() => {if(validacion(correoI, contraI)){ 
+          navigate('/menu'); 
+          } }}>
           Ingresar
         </button>
-        <p onClick={() => { navigate('/register') }} >Registro</p>
+        <p className='btRegistro' onClick={() => { navigate('/register') }} >Registro</p>
       </div>
       
     </div>

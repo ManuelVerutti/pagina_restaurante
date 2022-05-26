@@ -32,6 +32,9 @@ async function getRestaurante(db, id) {
 }
 
 function Detalle(state) {
+
+    const navigate = useNavigate();
+    
     const location = useLocation();
     console.log(location.state);
 
@@ -54,26 +57,40 @@ function Detalle(state) {
     });
     console.log("Cargo El Elemento")
 
-    const navigate = useNavigate();
 
     useEffect(() => {
         console.log(lista);
+        if(localStorage.getItem("inicioSesion") !=="si"){
+            navigate("/");
+        }
     })
     return (
-        <div className='fondoRes'>
-            <div className='contenidoRes'>
-                <div >
-                    <img alt="" src={imagen}></img>
-                    <a href={enlace}>Enlace Pagina</a>
-                </div>
-                <div className='infoRes'>
-                    <h2>{nombre}</h2>
-                    <h4>{ciudad} {direccion} </h4>
-                    <p>{reseña}</p>
-                    <p>{descripcion}</p>
+        <div>
+            <div className='header'>
+                <h1 onClick={() => { navigate('/menu') }}> Regresar</h1>
+            </div>
+            <div className='fondoRes'>
+
+
+                <div className='contenidoRes'>
+                    <div className='visual' >
+                        <img alt="" src={imagen}></img>
+                        <a href={enlace}>Enlace Pagina</a>
+                    </div>
+                    <div className='infoRes'>
+                        <h2>
+                            {nombre}</h2>
+                        <h4>Ciudad:  {ciudad}<br></br>  Direccion:  {direccion} <br></br> </h4>
+                        <p>Reseña:<br></br>
+                            {reseña}</p>
+                        <p>Descripción:<br></br>
+                            {descripcion}</p>
+                    </div>
                 </div>
             </div>
+
         </div>
+
     );
 }
 

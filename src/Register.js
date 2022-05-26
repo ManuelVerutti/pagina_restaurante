@@ -126,7 +126,7 @@ function Register() {
           } else { window.alert('No coinciden las Contraseñas'); } }}>
           Registrarse
         </button>
-        <p onClick={() => { navigate('/') }}>Iniciar Sesión</p>
+        <p className="btLogin" onClick={() => { navigate('/') }}>Iniciar Sesión</p>
       </div>
     </div>
   );

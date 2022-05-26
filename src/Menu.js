@@ -34,8 +34,10 @@ async function getRestaurante(db, id) {
 }
 
 function Menu() {
-
-
+    const navigate = useNavigate();
+    if(localStorage.getItem("inicioSesion") !=="si"){
+        navigate("/");
+    }
     const [lista, setLista] = useState("");
 
     if (lista.length === 0) {
@@ -97,6 +99,7 @@ function Menu() {
                 }} >Buscar</button>
             </div>
             <Grid lista={lista}></Grid>
+            <h3 className='cerrar' onClick={() => { navigate('/'); localStorage.setItem("inicioSesion", "no"); }}> Cerrar Sesión </h3>
         </div>
     );
 }

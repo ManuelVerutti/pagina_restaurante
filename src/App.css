@@ -1,6 +1,6 @@
 .contenido {
   
-  background-image: url("https://media-cdn.tripadvisor.com/media/photo-s/18/ba/24/c8/specialties.jpg");
+  background-image: url("../public/Sin título-1.png");
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -99,4 +99,10 @@
 }
 .datosR button:hover{
   background: orangered;
+}
+.btRegistro{
+  cursor: pointer;
+}
+.btLogin{
+  cursor: pointer;
 }
