@@ -43,6 +43,7 @@ async function addUser(db, nombre, correo, contrasena) {
     let newUser = doc(db, 'personas', nombre);
     //addDoc(db, 'personas', "2");
     await setDoc(newUser, {
+      nombre: nombre,
       correo: correo,
       contrasena: contrasena
     });
