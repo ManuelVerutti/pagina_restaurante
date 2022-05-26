@@ -104,7 +104,7 @@ function App() {
           </input>
         </div>
 
-        <button onClick={() => { validacion(correoI, contraI) }}>
+        <button onClick={() => { validacion(correoI, contraI); if(iCorrecto==="Correcto"){ navigate('/menu'); } }}>
           Ingresar
         </button>
         <p onClick={() => { navigate('/register') }} >Registro</p>

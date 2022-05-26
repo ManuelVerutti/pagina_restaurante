@@ -46,7 +46,6 @@ function Menu() {
 
     return (
         <div className='menu'>
-            
             <div className='ListaRestaurantes'>
                 <div className='ContendorTextoBuscador'>
                 <img src='logo192.png'></img>
@@ -58,6 +57,8 @@ function Menu() {
         </div>
     );
 }
+
+
 
 
 export default Menu;
